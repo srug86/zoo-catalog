@@ -1,0 +1,27 @@
+/* put your css code here */
+.crop-img{
+    max-height: 150px;
+    max-width: 100%;
+}
+
+.medium-img{
+    margin-top: 10px;
+    max-height: 300px;
+    max-width: 100%;
+}
+
+.indent {
+    margin-left: 15px;
+}
+
+.div-bottom-margin {
+    margin-bottom: 30px;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-center {
+    text-align: center;
+}

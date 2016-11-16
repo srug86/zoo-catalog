@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!-- This is a first example of using a template -->
+
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>My little ZOO</title>
+
+        <!-- include our libraries and css files -->
+
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script src="js/handlebars-v3.0.3.js"></script>
+
+        <script src="js/bootstrap.min.js"></script>
+        <script src="AnimalsData.js"></script>
+        <script src="assignment.js"></script>
+
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="assignment.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <!-- put your HTML here -->
+        <div class="container">
+
+            <!-- page tile -->
+            <div class="page-header">
+                <h1>My little ZOO</h1>
+            </div>
+
+            <!-- A navigation menu that selects different views -->
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="#" id="categories-tab" >Categories</a></li>
+                <li role="presentation"><a href="#" id="animals-tab" >Animals</a></li>
+                <li role="presentation"><a href="#" id="about-tab" >About</a></li>
+            </ul>
+
+            <br/><br/>
+
+            <!-- the content section is empty as we will fill it 
+            via javascript and templates -->
+            <div id="content" class="container-fluid" role="main">
+            </div>
+
+        </div> <!-- / container -->
+
+        <script id="categories-template" type="text/x-handlebars-template">
+            <div class="div-bottom-margin">
+                <h1 class="text-center">Categories</h1>
+            </div>
+            <div class="row">
+
+                {{#each category}}
+                <div class="col-xs-12 col-md-4">
+                    <div class="category-thumbnail" data-id="{{@index}}">
+                        <img class="crop-img" src="{{categoryImage animals}}" alt="" />
+
+                        <div class="caption">
+                            <h4>{{name}}</h4>
+                            <p>{{animals.length}} animals</p>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </script>
+
+        <script id="animals-template" type="text/x-handlebars-template">
+            <div class="div-bottom-margin">
+                <h1 class="text-center">{{name}}</h1>
+            </div>
+            <div class="row">
+
+                {{#each animals}}
+                <div class="col-xs-12 col-md-3">
+                    <div class="animal-thumbnail" data-id="{{@index}}">
+                        <img class="crop-img" src="{{image1}}" alt="" />
+
+                        <div class="caption">
+                            <h4>{{name}}</h4>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </script>
+
+        <script id="animal-template" type="text/x-handlebars-template">
+            <div class="row">
+
+                <div class="col-xs-12 col-md-12">
+                    <div class="caption">
+                        <h1>{{name}}</h1>
+                        <p class="text-justify"><span class="indent">{{description}}</span></p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <a href="{{image1}}">
+                                <img src="{{image1}}" class="medium-img" alt="Image of a {{name}}" />
+                            </a>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a href="{{image2}}">
+                                <img src="{{image2}}" class="medium-img" alt="Image of a {{name}}" />
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </script>
+
+        <script id="about-template" type="text/x-handlebars-template">
+            <p>
+                <dl>
+                    <dt>Author:</dt><dd>Sergio de la Rubia</dd>
+                    <dt>Country:</dt><dd>Spain</dd>
+                    <dt>Page content:</dt>
+                    <dd>
+                      <ul>
+                        <li><b>Categories:</b>
+                            <dd>
+                                <p>Shows all the categories of animals.</p>
+                            </dd>
+                        </li>
+                        <li><b>Animals:</b>
+                            <dd>
+                                <p>Shows all the animals of the selected category.</p>
+                            </dd>
+                        </li>
+                        <li><b>About:</b>
+                            <dd>Displays information about the current web page.</dd>
+                        </li>
+                      </ul>
+                    </dd>
+                </dl>
+            </p>
+            <p>
+            I used the style <b><i>"cerulean"</i></b> taken from <a href="https://bootswatch.com/">https://bootswatch.com/</a>.
+            </p>
+        </script>
+
+    </body>
+</html>
